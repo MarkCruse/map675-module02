@@ -476,7 +476,8 @@ Changes to be committed:
 
  ~/documents/mapping/map675/module-02>
 ```
-Create git hub repo
+
+##Create git hub repo
 curl -u 'markcruse' https://api.github.com/user/repos -d '{"name":"map675-module02","description":"module02"}'
 
 ```bash
@@ -588,14 +589,79 @@ Enter host password for user 'markcruse':
 git remote add origin git@github.com:markcruse/map675-module02.git
 git commit -m "initialize project"
 git push -u origin master
-```
-For and explaination of how the above works visit [https://stackoverflow.com/a/7563830](https://stackoverflow.com/a/7563830)
+
+For and explanation of how the above works visit [https://stackoverflow.com/a/7563830](https://stackoverflow.com/a/7563830)
 [How to install and use Hub](https://stackoverflow.com/a/31795003)
 
+##Using the chalk npm package
+more app.js
+```bash
+~/documents/mapping/map675/module-02> more app.js
+var chalk = require('chalk');
+var log = console.log
+console.log(chalk.green("hello node"));
+// Combine styled and normal strings
+log(chalk.blue('Hello') + 'World' + chalk.red('!'));
 
+// Compose multiple styles using the chainable API
+log(chalk.blue.bgRed.bold('Hello world!'));
+
+// Pass in multiple arguments
+log(chalk.blue('Hello', 'World!', 'Foo', 'bar', 'biz', 'baz'));
+
+// Nest styles
+log(chalk.red('Hello', chalk.underline.bgBlue('world') + '!'));
+
+// Nest styles of the same type even (color, underline, background)
+log(chalk.green(
+   'I am a green line ' +
+   chalk.blue.underline.bold('with a blue substring') +
+   ' that becomes green again!'
+));
+~/documents/mapping/map675/module-02>
+```
+More info on chalk
+*https://github.com/chalk/chalk
+*[Chalk Issues](https://github.com/chalk/chalk)
+*
+
+Running the app script in node
+```bash
+node app.js
+
+hello node
+HelloWorld!
+Hello world!
+Hello World! Foo bar biz baz
+Hello world!
+I am a green line with a blue substring that becomes green again!
+```
+###using node to write a simple web server
+touch server.js
+add some content
+```bash
+~/documents/mapping/map675/module-02> touch server.js
+~/documents/mapping/map675/module-02> more server.js
+var chalk = require('chalk');
+var http = require('http');
+
+console.log(chalk.blue('Starting a local web server ...'));
+
+http.createServer(function (req, res) {
+   res.writeHead(200, {'Content-Type': 'text/html'});
+   res.end('<h1>Hello Node server!</h1>');
+}).listen(8080);
+~/documents/mapping/map675/module-02>
+```
+##using Node to load and process data
+###reading, parsing, and writing JSON system files with Node
+
+
+```bash
+```
+---------------------------
 git status
 git add
-git status
 git commit -m ""
 git push -u origin master
 
