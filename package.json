@@ -12,6 +12,7 @@
   "license": "ISC",
   "dependencies": {
     "chalk": "^2.3.0",
+    "csv-parse": "^2.0.0",
     "csv2geojson": "^5.0.2"
   }
 }
